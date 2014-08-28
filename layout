@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>问卷设计</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <meta http-equiv="Expires" content="0" />
+    @Styles.Render("~/style/css")
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/edit")
+    @Scripts.Render("~/bundles/ckeditor")
+    @Scripts.Render("~/bundles/date")
+    @Scripts.Render("~/bundles/jsbox")
+    @Scripts.Render("~/bundles/jsBubble")
+    @Scripts.Render("~/bundles/load")
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery.cookie.js"></script>
+    <script src="~/Scripts/jQuery_ui.js"></script>
+    <script src="~/Scripts/json.js"></script>
+    <script src="~/Scripts/base_utils.js"></script>
+    <script type="text/javascript" src="~/Scripts/base_utils.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="wrapper">
+            <a href="/" class="logo"></a>
+
+            <ul class="main-nav">
+                <li>
+                    <a href="/mysurvey">问卷</a>
+                </li>
+                <li>
+                    <a href="/myform">表单</a>
+                </li>
+                <li>
+                    <a href="/lib">模板库</a>
+                </li>
+                <li>
+                    <a href="/helpcenter">帮助</a>
+                </li>
+                <li>
+                    <a href="http://bbs.wenjuan.com" target="_blank">论坛</a>
+                </li>
+            </ul>
+
+
+            <div class="entry">
+                <ul class="util-nav">
+                    <li>
+                        <a class="wjNews" href="/message/list"></a>
+                    </li>
+                    <li class="username">
+                        <a href="javascript:;" title="V丶Yamato">
+                            V丶Yamato
+                        </a>
+                        <div class="arrowup">
+                            <div class="arrowupt"></div>
+                        </div>
+                        <div class="loginMeun">
+                            <div class="opacityDIV"></div>
+                            <div class="loginMenu_n">
+                                <ul class="UserMenu">
+                                    <li><a href="/member">我的账户</a></li>
+                                    <li><a href="/member/myscore">调查券</a></li>
+                                    <li><a href="/contact/list/all?zoom_model=normal">联系人</a></li>
+                                    <li class="bbnot"><a href="/logout">退出</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+    <!--top end-->
+
+    <div class="wjContent">
+         @RenderBody()
+        
+               
+          
+        <!--/container-fluid-->
+    </div>
+    <form id="change_project_status_form" action="/edit/ajax/update_project_status/" method="POST" callback="change_project_status_callback">
+        <input type="hidden" name="proj_id">
+        <input type="hidden" name="status">
+        <input type="hidden" name="is_shared"><input type="hidden" name="_xsrf" value="e1614da47f0c4bfe97c683851d849190" />
+    </form>
+    <!--日期组件-->
+    <link type="text/css" rel="stylesheet" href="~/Scripts/plug-in/date/css/zebra_datepicker_metallic.css" />
+    <script type="text/javascript" src="~/Scripts/plug-in/date/javascript/zebra_datepicker.js"></script>
+    <script type="text/javascript">
+var project = {"status": 0, "updated": {"$date": 1407325596039}, "official_status": 0, "is_shared": false, "short_id": "JZ3uam", "is_struct_change": 1, "_id": {"$oid": "53e1a51cf7405b0d267ef49b"}, "questionpage_id_list": ["53e1a51cf7405b0d267ef49c"], "page_count": 0, "questionpage_list": [{"updated": {"$date": 1407325596027}, "_id": {"$oid": "53e1a51cf7405b0d267ef49c"}, "question_id_list": [], "question_list": [], "project_id": "53e1a51cf7405b0d267ef49b", "custom_attr": {}}], "share_status": 0, "created": {"$date": 1407325596016}, "end_desc": "\u60a8\u5df2\u5b8c\u6210\u672c\u6b21\u95ee\u5377\uff0c\u611f\u8c22\u60a8\u7684\u5e2e\u52a9\u4e0e\u652f\u6301", "creator_id": "53d75e85f7405b56bd08619a", "version": 1, "title": "\u521a\u521a\u597d", "project_func_id": "51dd234e9b9fbe6646bf4dcf", "first_create_for_member": false, "custom_attr": {"theme": "darkblue", "scrollbar": "on", "panelsite": "", "screenout_desc": "\u4e0d\u597d\u610f\u601d\uff0c\u60a8\u4e0d\u592a\u9002\u5408\u672c\u6b21\u8c03\u67e5\uff0c\u8c22\u8c22\u60a8\u7684\u65f6\u95f4"}, "begin_desc": "\u6b22\u8fce\u53c2\u52a0\u672c\u6b21\u7b54\u9898"};
+$(function(){
+// loadMack({off:'on',Limg:0,text:'加载中...',set:0});
+$('.logicset').click(function(){
+ajax_loads(920,256,'逻辑设置','/edit/ajax/logic_set/53e1a51cf7405b0d267ef49b/?v=' + new Date().getTime());
+});
+$('#appearset').click(function(){
+mapsets(918,600,'外观设置','/edit/appearset/53e1a51cf7405b0d267ef49b/?v=' + new Date().getTime());
+});
+$('#ansrest').click(function(){
+ajax_loads(500,380,'收集设置','/edit/ansrest/53e1a51cf7405b0d267ef49b/?pre_page=design&v=' + new Date().getTime());
+});
+});
+function ajax_loads(w,h,title,url){
+var wbs = new jsbox({
+onlyid:"maptss",
+title:title,
+conw:w,
+//conh:h,
+FixedTop:170,
+loads:true,
+url:url,
+range:false,
+mack:true
+}).show();
+}
+//弹出框打包配置
+function mapsets(w,h,title,url){
+var wbs = new jsbox({
+onlyid:"maptss",
+title:title,
+conw:w,
+conh:h,
+FixedTop:170,
+iframe:true,
+url:url,
+range:false,
+mack:true
+}).show();
+}
+function ajax_loads(w,h,title,url){
+var wbs = new jsbox({
+onlyid:"maptss",
+title:title,
+conw:w,
+//conh:h,
+FixedTop:170,
+loads:true,
+url:url,
+range:false,
+mack:true
+}).show();
+}
+function close_pop_window(){
+$("#maptss").remove();
+$('#lightBox').remove();
+}
+function flush_after_close_window(){
+$("#maptss").remove();
+$('#lightBox').remove();
+window.location.href = "/edit/survey/53e1a51cf7405b0d267ef49b/";
+}
+function publish_proj_confirm(){
+var confirm_popup_win = Object();
+confirm_popup_win.title = "确认发布";
+var content = "是否发布问卷?";
+if(project.share_status == 0 && (project.copy_from_pid==undefined||project.copy_from_pid==null||project.copy_from_pid=='')){
+content += "<br/><label><input style='margin:3px; margin:3px 3px 0 3px;' type='checkbox' checked='checked' id='checkbox_selector'/>共享到模板库</label><i class='tips' title='选中该选项，本问卷经审核合格后会添加到模板库中，供其他会员制作问卷时参考。'></i>";
+}
+confirm_popup_win.content = content;
+confirm_popup_win.obj = publish_proj;
+confirm_popup_win.close_obj = cancle_publish_proj;
+jsConfirm(confirm_popup_win);
+}
+function publish_proj(){
+var proj_id = project._id.$oid;
+$("#change_project_status_form input[name='proj_id']").val(proj_id);
+$("#change_project_status_form input[name='status']").val(1);
+$("#change_project_status_form input[name='is_shared']").val($("#checkbox_selector").attr("checked"));
+ajaxSubmit($("#change_project_status_form"));
+}
+function change_project_status_callback(info){
+loadMack({off:'on',text:'发布中',set:3000});
+setTimeout(function(){
+var panelsite = 'None';
+if(panelsite==3){
+var alert_obj = Object();
+alert_obj.title = "成功信息";
+alert_obj.content = "你的问卷已经成功发布到研修网";
+alert_obj.obj_text = '确定';
+alert_obj.obj = function(){
+var url = "/collect/urllink/53e1a51cf7405b0d267ef49b/";
+location.href = url;
+}
+jsAlert(alert_obj);
+}else{
+var url = "/collect/urllink/53e1a51cf7405b0d267ef49b/?fp="+info.first_publish;
+location.href = url;
+}
+}, 3000);
+}
+function cancle_publish_proj(){
+}
+var client_uuid = "4f5ec6a0-1d24-11e4-9687-90b11c535da3";
+    </script>
+    <script type="text/javascript" src="~/Scripts/init.js"></script>
+    <script type="text/javascript" src="~/Scripts/public.js"></script>
+    <script type="text/javascript" src="~/Scripts/modernizr.custom.js"></script>
+    <script src="~/Scripts/enums.js"></script>
+    <script src="~/Scripts/models.js"></script>
+    <script src="~/Scripts/juicer.js"></script>
+    <script src="~/Scripts/survey_utils.js"></script>
+    <!--加载提示-->
+    <link type="text/css" rel="stylesheet" href="~/Scripts/plug-in/load/load.css" />
+    <script type="text/javascript" src="~/Scripts/plug-in/load/load.js"></script>
+    <!--气泡弹框-->
+    <link type="text/css" rel="stylesheet" href="~/Scripts/plug-in/JsBubble/JsBubble.css" />
+    <script type="text/javascript" src="~/Scripts/plug-in/JsBubble/JsBubble.js"></script>
+    <!--弹出框-->
+    <link type="text/css" rel="stylesheet" href="~/Scripts/plug-in/jsbox/jsbox.css" />
+    <script type="text/javascript" src="~/Scripts/plug-in/jsbox/jsbox.js"></script>
+    <!--FCK编辑器-->
+    <script type="text/javascript" src="~/Scripts/plug-in/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/edit/edit.js"></script>
+    <script src="~/Scripts/edit/edit_utils.js"></script>
+    <script src="~/Scripts/edit/edit_init.js"></script>
+    <script src="~/Scripts/edit/q_template.js"></script>
+    <script src="~/Scripts/ssq.js"></script>
+    <script type="text/javascript">
+var active_index = 0;
+var found = 0;
+$(".main-nav li a").each(function(){
+if($(this).text() == '问卷')
+found = 1;
+if(found == 0)
+active_index += 1;
+});
+set_active_head1(active_index);
+var first_edit = false;
+if (first_edit){
+//新手帮助
+Help_up();
+}
+// window.onbeforeunload = function(){
+// syncPost('/edit/ajax/exit_edit/'+get_oid(project)+"/", {});
+// }
+    </script>
+
+
+
+    <div class="footer_w">
+        <div class="footer">
+            <div class="instructions">
+                <div class="ma_auto">
+                    <div> ©2013 爱调研旗下网站 </div><a href="http://business.idiaoyan.com/" target="_blank"><div class="slogan_min"></div></a><span>用你的观点影响世界</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-9592313-3']);
+_gaq.push(['_setDomainName', 'wenjuan.com']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+    </script>
+    <script type="text/javascript">
+$(function(){
+$().top_hj();
+$('.username').click(function(){
+if($(".loginMeun:visible").length>0){
+$(this).find('.loginMeun').hide();
+$(this).find('.arrowupt').removeClass('atop');
+}else{
+$(this).find('.loginMeun').show();
+$(this).find('.arrowupt').addClass('atop');
+}
+});
+$(".login_but").click(function(){
+if($(".loginBox:visible").length>0){
+$(".loginBox").fadeOut("slow");
+}else{
+$(".loginBox").fadeIn("slow");
+}
+return false;
+});
+$(".loginBox").mouseup(function(){return false;});
+$('body').mouseup(function(){
+$(".loginBox").fadeOut("slow");
+$('.username').find('.loginMeun').hide();
+$('.username').find('.arrowupt').removeClass('atop');
+});
+$("a img[src='http://eiv.baidu.com/hmt/icon/21.gif']").hide();
+});
+
+$.ajax({
+type: "get",
+url: "/message/check",
+data: "",
+success: function (result) {
+if(result=='True'){
+$('.wjNews').html("<span class='PointRed'></span>");
+}
+}
+});
+
+//快速置顶
+;(function($){$.fn.extend({"top_hj":function(Obj){if(!Obj){Obj={}}var Tinfo={parent:Obj.parent||".Tj",url:Obj.url||"/about/zxzx/"};var Zonw=$(Tinfo.parent).width()+30;fu_scroll($(window));$(window).scroll(function(){$('.gzweixin').hide();fu_scroll($(this))});$('.top_hj').live('click',function(){$('html,body').animate({scrollTop:0},'slow')});$('.top_weixin').die().live('click',function(){var gzweixin=$('.gzweixin:visible');if(gzweixin.length>0){gzweixin.hide()}else{addGzTip($(this))}return});function fu_scroll(_this){var Zonw=$(Tinfo.parent).width()+30;var scrollT=_this.scrollTop();var bodyH=$('body').height();var winH=_this.height();var scrollB=bodyH-scrollT-winH;if(scrollT>300){var ml=$('.top_hj').length;if(ml==0){$(Tinfo.parent).append('<a title="置顶" class="top_hj ie6fixedBR" style="margin-left:'+Zonw+'px" href="javascript:;"></a>')}}else{$('.top_hj').remove()}if(scrollB<160){$('.top_hj').css({bottom:(281-scrollB)+'px'});$('.top_weixin').css({bottom:(230-scrollB)+'px'});$('.top_feedback').css({bottom:(176-scrollB)+'px'})}else{$('.top_hj').css({bottom:'112px'});$('.top_weixin').css({bottom:'60px'});$('.top_feedback').css({bottom:'5px'})}}function addGzTip(obj){var x=obj.offset().left-160;var y=obj.offset().top-123;var gzweixin=$('gzweixin');if(gzweixin.length>0){gzweixin.css({'top':y+'px','left':x+'px'})}else{var con='<div style="top:'+y+'px;left:'+x+'px;" class="gzweixin"></div>';$('body').append(con)}}}})})(jQuery);
+    </script>
+    <script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F805c9a16950cbbec8732e90433c5a9e2' type='text/javascript'%3E%3C/script%3E"));
+$(function(){
+autoheight();
+var resizeTimer1 = null;
+$(window).resize(function(){
+if (resizeTimer1) clearTimeout(resizeTimer1);
+resizeTimer1 = setTimeout("autoheight()", 100);
+});
+});
+function autoheight(){
+if(($(document).height()-$('body').innerHeight())>0){
+$('.footer_w').css('margin-top','0px');
+$('.footer_w').css('margin-top',($(document).height()-$('body').innerHeight())+'px')
+};
+}
+    </script>
+</body>
+<!--- CheckPoint:e5434731e0d5daab65472cce13db9b24 --->
+</html>
+
+
+
